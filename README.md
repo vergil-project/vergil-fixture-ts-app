@@ -25,12 +25,13 @@ adds one small increment.
 
 ## Overview
 
-The program, `vergil-fixture-ts-app`, has three subcommands:
+The program, `vergil-fixture-ts-app`, has four subcommands:
 
 | Command            | Prints                                 |
 | ------------------ | -------------------------------------- |
 | `greet NAME`       | `Hello, NAME`                          |
 | `sum [NUMBERS...]` | the sum of the integers, `0` for none  |
+| `max NUMBERS...`   | the largest of the integers            |
 | `info`             | the program's name and version as JSON |
 
 It exercises:

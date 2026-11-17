@@ -8,6 +8,7 @@ vergil-fixture-ts-app [options] [command]
 | -------------------------- | -------------------------------------- |
 | [`greet NAME`](#greet)     | a greeting for `NAME`                  |
 | [`sum [NUMBERS...]`](#sum) | the sum of the integers                |
+| [`max NUMBERS...`](#max)   | the largest of the integers            |
 | [`info`](#info)            | the program's name and version as JSON |
 
 `--help` (`-h`) prints the commands, and `--version` (`-V`) prints the
@@ -56,6 +57,22 @@ result:
 ```console
 $ vergil-fixture-ts-app sum 9007199254740991 1
 error: the sum is out of the safe integer range
+```
+
+## max
+
+```console
+$ vergil-fixture-ts-app max 1 7 -4
+7
+```
+
+At least one number is required. Each is a decimal integer within the same
+safe range as for [`sum`](#sum), and anything else is a usage error that names
+the value:
+
+```console
+$ vergil-fixture-ts-app max 1 x
+error: command-argument value 'x' is invalid for argument 'numbers'. not an integer
 ```
 
 ## info
