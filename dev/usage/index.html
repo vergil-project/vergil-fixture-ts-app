@@ -471,6 +471,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#max" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        max
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#info" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -549,6 +560,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#max" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        max
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#info" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -594,6 +616,10 @@
 <tr>
 <td><a href="#sum"><code>sum [NUMBERS...]</code></a></td>
 <td>the sum of the integers</td>
+</tr>
+<tr>
+<td><a href="#max"><code>max NUMBERS...</code></a></td>
+<td>the largest of the integers</td>
 </tr>
 <tr>
 <td><a href="#info"><code>info</code></a></td>
@@ -645,6 +671,16 @@ names the value:</p>
 result:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>vergil-fixture-ts-app<span class="w"> </span>sum<span class="w"> </span><span class="m">9007199254740991</span><span class="w"> </span><span class="m">1</span>
 <span class="go">error: the sum is out of the safe integer range</span>
+</code></pre></div>
+<h2 id="max">max<a class="headerlink" href="#max" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>vergil-fixture-ts-app<span class="w"> </span>max<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">7</span><span class="w"> </span>-4
+<span class="go">7</span>
+</code></pre></div>
+<p>At least one number is required. Each is a decimal integer within the same
+safe range as for <a href="#sum"><code>sum</code></a>, and anything else is a usage error that names
+the value:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>vergil-fixture-ts-app<span class="w"> </span>max<span class="w"> </span><span class="m">1</span><span class="w"> </span>x
+<span class="go">error: command-argument value 'x' is invalid for argument 'numbers'. not an integer</span>
 </code></pre></div>
 <h2 id="info">info<a class="headerlink" href="#info" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>vergil-fixture-ts-app<span class="w"> </span>info
