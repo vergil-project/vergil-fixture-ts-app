@@ -19,6 +19,10 @@ describe("run", () => {
     expect(runCaptured(["max", "1", "7", "-4"])).toEqual({ code: 0, out: "7\n", err: "" });
   });
 
+  it("prints the text reversed", () => {
+    expect(runCaptured(["reverse", "Ada"])).toEqual({ code: 0, out: "adA\n", err: "" });
+  });
+
   it("prints its metadata as JSON", () => {
     expect(runCaptured(["info"])).toEqual({
       code: 0,
@@ -36,7 +40,13 @@ describe("run", () => {
     expect(outcome.code).toBe(0);
     expect(outcome.err).toBe("");
     expect(outcome.out).toMatch(/^Usage: vergil-fixture-ts-app /);
-    for (const name of ["greet <name>", "sum [numbers...]", "max <numbers...>", "info"]) {
+    for (const name of [
+      "greet <name>",
+      "sum [numbers...]",
+      "max <numbers...>",
+      "reverse <text>",
+      "info",
+    ]) {
       expect(outcome.out).toContain(name);
     }
   });
@@ -67,6 +77,14 @@ describe("run", () => {
       code: 1,
       out: "",
       err: "error: missing required argument 'name'\n",
+    });
+  });
+
+  it("fails on reverse with no text", () => {
+    expect(runCaptured(["reverse"])).toEqual({
+      code: 1,
+      out: "",
+      err: "error: missing required argument 'text'\n",
     });
   });
 

@@ -9,6 +9,7 @@ vergil-fixture-ts-app [options] [command]
 | [`greet NAME`](#greet)     | a greeting for `NAME`                  |
 | [`sum [NUMBERS...]`](#sum) | the sum of the integers                |
 | [`max NUMBERS...`](#max)   | the largest of the integers            |
+| [`reverse TEXT`](#reverse) | `TEXT` with its characters reversed    |
 | [`info`](#info)            | the program's name and version as JSON |
 
 `--help` (`-h`) prints the commands, and `--version` (`-V`) prints the
@@ -74,6 +75,17 @@ the value:
 $ vergil-fixture-ts-app max 1 x
 error: command-argument value 'x' is invalid for argument 'numbers'. not an integer
 ```
+
+## reverse
+
+```console
+$ vergil-fixture-ts-app reverse "Ada Lovelace"
+ecalevoL adA
+```
+
+`TEXT` is required. Each character is a user-perceived character (a grapheme
+cluster), so an accented letter written with a combining mark, or an emoji
+made of several code points, stays whole.
 
 ## info
 
