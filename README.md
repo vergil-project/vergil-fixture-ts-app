@@ -1,6 +1,15 @@
 # vergil-fixture-ts-app
 
-Vergil test fixture: a TypeScript application. No users; integration test and example repo.
+This repository is a Vergil test fixture. It has no users. It holds a small,
+real TypeScript command-line application so that Vergil's support for
+TypeScript applications has something real to run against: local validation,
+CI, the dependency and license audit, the build, the docs site and the
+release. It is one of the language fixture repos that epic
+[vergil-project/.github#1091](https://github.com/vergil-project/.github/issues/1091)
+describes in its
+[spec](https://github.com/vergil-project/.github/blob/develop/epics/1091-language-fixture-repos/spec.md);
+epic [vergil-project/.github#1174](https://github.com/vergil-project/.github/issues/1174)
+added the TypeScript fixtures.
 
 ## Table of Contents
 
@@ -11,11 +20,31 @@ Vergil test fixture: a TypeScript application. No users; integration test and ex
 
 ## Status
 
-Early development
+A test fixture. Its program changes only through fixture runs, each of which
+adds one small increment.
 
 ## Overview
 
-TODO
+The program, `vergil-fixture-ts-app`, has three subcommands:
+
+| Command            | Prints                                 |
+| ------------------ | -------------------------------------- |
+| `greet NAME`       | `Hello, NAME`                          |
+| `sum [NUMBERS...]` | the sum of the integers, `0` for none  |
+| `info`             | the program's name and version as JSON |
+
+It exercises:
+
+- `vrg-validate`'s TypeScript checks: the required devDependencies at their
+  accepted majors, Prettier and ESLint on Vergil's managed configs, `tsc`,
+  Vitest at 100% line coverage, `npm audit` and the license summary, and the
+  BUILD check, which runs `npm run build` to compile the program to `dist/`;
+- two real runtime dependencies, `commander` and `zod`, for the audit and the
+  dependency tooling to work on;
+- the fleet's CI and CD workflows, the docs site and the tagged release.
+
+Nothing it builds is published to a package registry (`"private": true` in
+`package.json`).
 
 ## Getting Started
 
