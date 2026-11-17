@@ -2,6 +2,7 @@ import { InvalidArgumentError } from "commander";
 import { describe, expect, it } from "vitest";
 import { greet } from "../src/commands/greet.js";
 import { info } from "../src/commands/info.js";
+import { max } from "../src/commands/max.js";
 import { sum } from "../src/commands/sum.js";
 import { CommandError } from "../src/context.js";
 import { parseInteger } from "../src/integers.js";
@@ -25,6 +26,16 @@ describe("sum", () => {
     expect(() => sum([Number.MAX_SAFE_INTEGER, 1])).toThrow(
       new CommandError("the sum is out of the safe integer range"),
     );
+  });
+});
+
+describe("max", () => {
+  it("is the only number of one", () => {
+    expect(max([-3])).toBe(-3);
+  });
+
+  it("is the largest number", () => {
+    expect(max([1, 7, -4, 7])).toBe(7);
   });
 });
 

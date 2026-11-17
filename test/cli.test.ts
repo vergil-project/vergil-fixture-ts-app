@@ -15,6 +15,10 @@ describe("run", () => {
     expect(runCaptured(["sum", "1", "2", "-4"])).toEqual({ code: 0, out: "-1\n", err: "" });
   });
 
+  it("prints the largest number", () => {
+    expect(runCaptured(["max", "1", "7", "-4"])).toEqual({ code: 0, out: "7\n", err: "" });
+  });
+
   it("prints its metadata as JSON", () => {
     expect(runCaptured(["info"])).toEqual({
       code: 0,
@@ -32,7 +36,7 @@ describe("run", () => {
     expect(outcome.code).toBe(0);
     expect(outcome.err).toBe("");
     expect(outcome.out).toMatch(/^Usage: vergil-fixture-ts-app /);
-    for (const name of ["greet <name>", "sum [numbers...]", "info"]) {
+    for (const name of ["greet <name>", "sum [numbers...]", "max <numbers...>", "info"]) {
       expect(outcome.out).toContain(name);
     }
   });
@@ -63,6 +67,22 @@ describe("run", () => {
       code: 1,
       out: "",
       err: "error: missing required argument 'name'\n",
+    });
+  });
+
+  it("fails on max with no numbers", () => {
+    expect(runCaptured(["max"])).toEqual({
+      code: 1,
+      out: "",
+      err: "error: missing required argument 'numbers'\n",
+    });
+  });
+
+  it("fails on a max argument that is not an integer", () => {
+    expect(runCaptured(["max", "1", "x"])).toEqual({
+      code: 1,
+      out: "",
+      err: "error: command-argument value 'x' is invalid for argument 'numbers'. not an integer\n",
     });
   });
 
