@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import { greet } from "../src/commands/greet.js";
 import { info } from "../src/commands/info.js";
 import { max } from "../src/commands/max.js";
+import { reverse } from "../src/commands/reverse.js";
 import { sum } from "../src/commands/sum.js";
 import { CommandError } from "../src/context.js";
 import { parseInteger } from "../src/integers.js";
@@ -36,6 +37,25 @@ describe("max", () => {
 
   it("is the largest number", () => {
     expect(max([1, 7, -4, 7])).toBe(7);
+  });
+});
+
+describe("reverse", () => {
+  it("is empty for empty text", () => {
+    expect(reverse("")).toBe("");
+  });
+
+  it("reverses the characters", () => {
+    expect(reverse("Ada Lovelace")).toBe("ecalevoL adA");
+  });
+
+  it("keeps a combining mark with its letter", () => {
+    expect(reverse("cafe\u0301!")).toBe("!e\u0301fac");
+  });
+
+  it("keeps an emoji sequence whole", () => {
+    const family = "\u{1F468}\u200D\u{1F469}\u200D\u{1F467}";
+    expect(reverse(`a${family}b`)).toBe(`b${family}a`);
   });
 });
 
