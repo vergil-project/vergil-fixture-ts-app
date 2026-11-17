@@ -12,6 +12,8 @@
         <link rel="prev" href="..">
       
       
+        <link rel="next" href="../usage/">
+      
       
         
       
@@ -253,6 +255,25 @@
   
 
       
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../usage/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Usage
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -341,6 +362,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -358,6 +397,107 @@
 
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#build-and-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build and run
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layout
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-a-subcommand" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding a subcommand
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -382,6 +522,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#build-and-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build and run
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layout
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-a-subcommand" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding a subcommand
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -398,7 +601,102 @@
 
 
 <h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
-<p>TODO: Add getting started guide for vergil-fixture-ts-app.</p>
+<p>The fixture is an npm package, private to the repo, with one binary,
+<code>vergil-fixture-ts-app</code>. It needs Node.js 24 or later.</p>
+<h2 id="build-and-run">Build and run<a class="headerlink" href="#build-and-run" title="Permanent link">&para;</a></h2>
+<p>From a clone of the repository:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>npm<span class="w"> </span>ci<span class="w"> </span>--ignore-scripts
+<span class="gp">$ </span>npm<span class="w"> </span>run<span class="w"> </span>build
+<span class="gp">$ </span>node<span class="w"> </span>dist/main.js<span class="w"> </span>greet<span class="w"> </span>Ada
+<span class="go">Hello, Ada</span>
+</code></pre></div>
+<p><code>npm run build</code> compiles <code>src/</code> to <code>dist/</code> with <code>tsconfig.build.json</code>, and
+<code>dist/main.js</code> is the binary the package's <code>bin</code> entry names.</p>
+<h2 id="validate">Validate<a class="headerlink" href="#validate" title="Permanent link">&para;</a></h2>
+<p>As in every Vergil repo, validation runs in the Vergil dev container, and
+nothing else is the gate:</p>
+<div class="highlight"><pre><span></span><code>vrg-container-run<span class="w"> </span>--<span class="w"> </span>vrg-validate
+</code></pre></div>
+<h2 id="layout">Layout<a class="headerlink" href="#layout" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Holds</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src/main.ts</code></td>
+<td>the binary: run the program on the process's arguments and set its exit code</td>
+</tr>
+<tr>
+<td><code>src/cli.ts</code></td>
+<td><code>buildProgram</code>, the <code>commander</code> parser, and <code>run</code>, which returns the exit code</td>
+</tr>
+<tr>
+<td><code>src/context.ts</code></td>
+<td>the <code>Io</code> and <code>Context</code> a subcommand is given, and <code>CommandError</code></td>
+</tr>
+<tr>
+<td><code>src/commands/</code></td>
+<td>one module per subcommand, and <code>index.ts</code>, which lists them</td>
+</tr>
+<tr>
+<td><code>src/integers.ts</code></td>
+<td>the <code>zod</code> parser for integer arguments</td>
+</tr>
+<tr>
+<td><code>src/metadata.ts</code></td>
+<td>the program's name and version, read from <code>package.json</code></td>
+</tr>
+<tr>
+<td><code>test/</code></td>
+<td>the Vitest tests, which cover every line of <code>src/</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Holds</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tsconfig.json</code></td>
+<td>extends Vergil's managed <code>tsconfig.vergil.json</code>; type-checks <code>src/</code> and <code>test/</code></td>
+</tr>
+<tr>
+<td><code>tsconfig.build.json</code></td>
+<td>the build: <code>src/</code> only, emitted to <code>dist/</code></td>
+</tr>
+<tr>
+<td><code>eslint.config.mjs</code></td>
+<td>spreads Vergil's managed <code>eslint.vergil.config.mjs</code></td>
+</tr>
+<tr>
+<td><code>vitest.config.ts</code></td>
+<td>the test files, and coverage measured over <code>src/</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>tsconfig.vergil.json</code>, <code>eslint.vergil.config.mjs</code> and <code>.prettierrc.json</code> are
+written by Vergil's fleet sync. They are never edited here.</p>
+<h2 id="adding-a-subcommand">Adding a subcommand<a class="headerlink" href="#adding-a-subcommand" title="Permanent link">&para;</a></h2>
+<p>A fixture run grows the program by one subcommand at a time, with no
+restructuring:</p>
+<ol>
+<li>Add <code>src/commands/&lt;name&gt;.ts</code> with the subcommand's logic as a plain
+   exported function and a <code>register(program, context)</code> that adds the command
+   and writes the result through <code>context.io</code>. A failure the user should see
+   throws a <code>CommandError</code>.</li>
+<li>Add the module to <code>subcommands</code> in <code>src/commands/index.ts</code>.</li>
+<li>Add its tests under <code>test/</code>, its entry to the <a href="../usage/">Usage</a> page, and
+   its row to the subcommand table in the repository's <code>README.md</code>.</li>
+</ol>
 
 
 

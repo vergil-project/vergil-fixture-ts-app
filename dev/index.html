@@ -253,6 +253,25 @@
   
 
       
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="usage/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Usage
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -314,6 +333,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="." class="md-nav__link md-nav__link--active">
         
   
@@ -330,6 +367,47 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-it-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it exercises
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -362,6 +440,33 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -382,6 +487,36 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-it-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it exercises
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -398,7 +533,32 @@
 
 
 <h1 id="vergil-fixture-ts-app">vergil-fixture-ts-app<a class="headerlink" href="#vergil-fixture-ts-app" title="Permanent link">&para;</a></h1>
-<p>Welcome to the vergil-fixture-ts-app documentation.</p>
+<p>This is a Vergil test fixture. It has no users.</p>
+<p>It holds a small TypeScript command-line application so that Vergil's support
+for TypeScript applications runs against a real one: local validation with
+<code>vrg-validate</code>, the build, CI, the dependency and license audit, this docs
+site and the tagged release. Each fixture run adds one small increment to the
+program and drives it through Vergil's full cycle, from change to release.</p>
+<p>Why the fixture exists, and how a fixture run works, is set out in the
+<a href="https://github.com/vergil-project/.github/blob/develop/epics/1091-language-fixture-repos/spec.md">spec of epic vergil-project/.github#1091</a>.
+The TypeScript fixtures came with
+<a href="https://github.com/vergil-project/.github/blob/develop/epics/1174-ts-full-cycle/spec.md">epic vergil-project/.github#1174</a>.</p>
+<h2 id="what-it-exercises">What it exercises<a class="headerlink" href="#what-it-exercises" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>vrg-validate</code>'s TypeScript checks: the required devDependencies at their
+  accepted majors, Prettier and ESLint on Vergil's managed configs, <code>tsc</code>,
+  Vitest at 100% line coverage, <code>npm audit</code> and the license summary, and the
+  BUILD check, which compiles the program to <code>dist/</code>.</li>
+<li>Two real runtime dependencies, <code>commander</code> and <code>zod</code>, for the audit and the
+  dependency tooling to work on.</li>
+<li>The fleet's CI and CD workflows, this site and the release.</li>
+</ul>
+<p>Nothing it builds is published to a package registry.</p>
+<h2 id="next">Next<a class="headerlink" href="#next" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="getting-started/">Getting Started</a>: build and run it.</li>
+<li><a href="usage/">Usage</a>: its subcommands.</li>
+</ul>
 
 
 
