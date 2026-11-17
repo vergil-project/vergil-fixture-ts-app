@@ -482,6 +482,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#reverse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        reverse
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#info" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -571,6 +582,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#reverse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        reverse
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#info" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -620,6 +642,10 @@
 <tr>
 <td><a href="#max"><code>max NUMBERS...</code></a></td>
 <td>the largest of the integers</td>
+</tr>
+<tr>
+<td><a href="#reverse"><code>reverse TEXT</code></a></td>
+<td><code>TEXT</code> with its characters reversed</td>
 </tr>
 <tr>
 <td><a href="#info"><code>info</code></a></td>
@@ -682,6 +708,13 @@ the value:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>vergil-fixture-ts-app<span class="w"> </span>max<span class="w"> </span><span class="m">1</span><span class="w"> </span>x
 <span class="go">error: command-argument value 'x' is invalid for argument 'numbers'. not an integer</span>
 </code></pre></div>
+<h2 id="reverse">reverse<a class="headerlink" href="#reverse" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>vergil-fixture-ts-app<span class="w"> </span>reverse<span class="w"> </span><span class="s2">"Ada Lovelace"</span>
+<span class="go">ecalevoL adA</span>
+</code></pre></div>
+<p><code>TEXT</code> is required. Each character is a user-perceived character (a grapheme
+cluster), so an accented letter written with a combining mark, or an emoji
+made of several code points, stays whole.</p>
 <h2 id="info">info<a class="headerlink" href="#info" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>vergil-fixture-ts-app<span class="w"> </span>info
 <span class="go">{"name":"vergil-fixture-ts-app","version":"0.1.0"}</span>
