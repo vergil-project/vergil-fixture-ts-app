@@ -482,6 +482,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        min
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#reverse" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -582,6 +593,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        min
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#reverse" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -642,6 +664,10 @@
 <tr>
 <td><a href="#max"><code>max NUMBERS...</code></a></td>
 <td>the largest of the integers</td>
+</tr>
+<tr>
+<td><a href="#min"><code>min NUMBERS...</code></a></td>
+<td>the smallest of the integers</td>
 </tr>
 <tr>
 <td><a href="#reverse"><code>reverse TEXT</code></a></td>
@@ -706,6 +732,16 @@ result:</p>
 safe range as for <a href="#sum"><code>sum</code></a>, and anything else is a usage error that names
 the value:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>vergil-fixture-ts-app<span class="w"> </span>max<span class="w"> </span><span class="m">1</span><span class="w"> </span>x
+<span class="go">error: command-argument value 'x' is invalid for argument 'numbers'. not an integer</span>
+</code></pre></div>
+<h2 id="min">min<a class="headerlink" href="#min" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>vergil-fixture-ts-app<span class="w"> </span>min<span class="w"> </span><span class="m">1</span><span class="w"> </span>-4<span class="w"> </span><span class="m">7</span>
+<span class="go">-4</span>
+</code></pre></div>
+<p>At least one number is required. Each is a decimal integer within the same
+safe range as for <a href="#sum"><code>sum</code></a>, and anything else is a usage error that names
+the value:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>vergil-fixture-ts-app<span class="w"> </span>min<span class="w"> </span>x<span class="w"> </span><span class="m">1</span>
 <span class="go">error: command-argument value 'x' is invalid for argument 'numbers'. not an integer</span>
 </code></pre></div>
 <h2 id="reverse">reverse<a class="headerlink" href="#reverse" title="Permanent link">&para;</a></h2>
