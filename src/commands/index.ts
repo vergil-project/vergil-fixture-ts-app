@@ -6,6 +6,7 @@ import * as max from "./max.js";
 import * as min from "./min.js";
 import * as reverse from "./reverse.js";
 import * as sum from "./sum.js";
+import * as upper from "./upper.js";
 
 /** A subcommand module: it adds its command to the program. */
 export interface Subcommand {
@@ -13,4 +14,4 @@ export interface Subcommand {
 }
 
 /** Every subcommand, in the order `--help` lists them. */
-export const subcommands: readonly Subcommand[] = [greet, sum, max, min, reverse, info];
+export const subcommands: readonly Subcommand[] = [greet, sum, max, min, reverse, upper, info];
