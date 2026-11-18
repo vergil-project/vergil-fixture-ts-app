@@ -6,6 +6,7 @@ import { max } from "../src/commands/max.js";
 import { min } from "../src/commands/min.js";
 import { reverse } from "../src/commands/reverse.js";
 import { sum } from "../src/commands/sum.js";
+import { upper } from "../src/commands/upper.js";
 import { CommandError } from "../src/context.js";
 import { parseInteger } from "../src/integers.js";
 
@@ -67,6 +68,20 @@ describe("reverse", () => {
   it("keeps an emoji sequence whole", () => {
     const family = "\u{1F468}\u200D\u{1F469}\u200D\u{1F467}";
     expect(reverse(`a${family}b`)).toBe(`b${family}a`);
+  });
+});
+
+describe("upper", () => {
+  it("is empty for empty text", () => {
+    expect(upper("")).toBe("");
+  });
+
+  it("upper-cases the letters and leaves the rest", () => {
+    expect(upper("Ada Lovelace, 1815!")).toBe("ADA LOVELACE, 1815!");
+  });
+
+  it("maps a letter to more than one when Unicode says so", () => {
+    expect(upper("stra\u00DFe")).toBe("STRASSE");
   });
 });
 
