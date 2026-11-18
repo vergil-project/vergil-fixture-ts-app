@@ -11,6 +11,7 @@ vergil-fixture-ts-app [options] [command]
 | [`max NUMBERS...`](#max)   | the largest of the integers            |
 | [`min NUMBERS...`](#min)   | the smallest of the integers           |
 | [`reverse TEXT`](#reverse) | `TEXT` with its characters reversed    |
+| [`upper TEXT`](#upper)     | `TEXT` in upper case                   |
 | [`info`](#info)            | the program's name and version as JSON |
 
 `--help` (`-h`) prints the commands, and `--version` (`-V`) prints the
@@ -103,6 +104,17 @@ ecalevoL adA
 `TEXT` is required. Each character is a user-perceived character (a grapheme
 cluster), so an accented letter written with a combining mark, or an emoji
 made of several code points, stays whole.
+
+## upper
+
+```console
+$ vergil-fixture-ts-app upper "Ada Lovelace"
+ADA LOVELACE
+```
+
+`TEXT` is required. It is converted by Unicode's default case mapping, the
+same in every locale, so a letter can become more than one: `straße` prints
+as `STRASSE`.
 
 ## info
 
