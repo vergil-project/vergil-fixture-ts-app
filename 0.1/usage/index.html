@@ -504,6 +504,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#upper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        upper
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#info" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -615,6 +626,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#upper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        upper
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#info" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -672,6 +694,10 @@
 <tr>
 <td><a href="#reverse"><code>reverse TEXT</code></a></td>
 <td><code>TEXT</code> with its characters reversed</td>
+</tr>
+<tr>
+<td><a href="#upper"><code>upper TEXT</code></a></td>
+<td><code>TEXT</code> in upper case</td>
 </tr>
 <tr>
 <td><a href="#info"><code>info</code></a></td>
@@ -751,6 +777,13 @@ the value:</p>
 <p><code>TEXT</code> is required. Each character is a user-perceived character (a grapheme
 cluster), so an accented letter written with a combining mark, or an emoji
 made of several code points, stays whole.</p>
+<h2 id="upper">upper<a class="headerlink" href="#upper" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>vergil-fixture-ts-app<span class="w"> </span>upper<span class="w"> </span><span class="s2">"Ada Lovelace"</span>
+<span class="go">ADA LOVELACE</span>
+</code></pre></div>
+<p><code>TEXT</code> is required. It is converted by Unicode's default case mapping, the
+same in every locale, so a letter can become more than one: <code>straße</code> prints
+as <code>STRASSE</code>.</p>
 <h2 id="info">info<a class="headerlink" href="#info" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>vergil-fixture-ts-app<span class="w"> </span>info
 <span class="go">{"name":"vergil-fixture-ts-app","version":"0.1.0"}</span>
