@@ -25,13 +25,14 @@ adds one small increment.
 
 ## Overview
 
-The program, `vergil-fixture-ts-app`, has five subcommands:
+The program, `vergil-fixture-ts-app`, has six subcommands:
 
 | Command            | Prints                                 |
 | ------------------ | -------------------------------------- |
 | `greet NAME`       | `Hello, NAME`                          |
 | `sum [NUMBERS...]` | the sum of the integers, `0` for none  |
 | `max NUMBERS...`   | the largest of the integers            |
+| `min NUMBERS...`   | the smallest of the integers           |
 | `reverse TEXT`     | `TEXT` with its characters reversed    |
 | `info`             | the program's name and version as JSON |
 

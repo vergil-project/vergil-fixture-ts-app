@@ -19,6 +19,10 @@ describe("run", () => {
     expect(runCaptured(["max", "1", "7", "-4"])).toEqual({ code: 0, out: "7\n", err: "" });
   });
 
+  it("prints the smallest number", () => {
+    expect(runCaptured(["min", "1", "-4", "7"])).toEqual({ code: 0, out: "-4\n", err: "" });
+  });
+
   it("prints the text reversed", () => {
     expect(runCaptured(["reverse", "Ada"])).toEqual({ code: 0, out: "adA\n", err: "" });
   });
@@ -44,6 +48,7 @@ describe("run", () => {
       "greet <name>",
       "sum [numbers...]",
       "max <numbers...>",
+      "min <numbers...>",
       "reverse <text>",
       "info",
     ]) {
@@ -93,6 +98,22 @@ describe("run", () => {
       code: 1,
       out: "",
       err: "error: missing required argument 'numbers'\n",
+    });
+  });
+
+  it("fails on min with no numbers", () => {
+    expect(runCaptured(["min"])).toEqual({
+      code: 1,
+      out: "",
+      err: "error: missing required argument 'numbers'\n",
+    });
+  });
+
+  it("fails on a min argument that is not an integer", () => {
+    expect(runCaptured(["min", "x", "1"])).toEqual({
+      code: 1,
+      out: "",
+      err: "error: command-argument value 'x' is invalid for argument 'numbers'. not an integer\n",
     });
   });
 

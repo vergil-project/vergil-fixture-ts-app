@@ -9,6 +9,7 @@ vergil-fixture-ts-app [options] [command]
 | [`greet NAME`](#greet)     | a greeting for `NAME`                  |
 | [`sum [NUMBERS...]`](#sum) | the sum of the integers                |
 | [`max NUMBERS...`](#max)   | the largest of the integers            |
+| [`min NUMBERS...`](#min)   | the smallest of the integers           |
 | [`reverse TEXT`](#reverse) | `TEXT` with its characters reversed    |
 | [`info`](#info)            | the program's name and version as JSON |
 
@@ -73,6 +74,22 @@ the value:
 
 ```console
 $ vergil-fixture-ts-app max 1 x
+error: command-argument value 'x' is invalid for argument 'numbers'. not an integer
+```
+
+## min
+
+```console
+$ vergil-fixture-ts-app min 1 -4 7
+-4
+```
+
+At least one number is required. Each is a decimal integer within the same
+safe range as for [`sum`](#sum), and anything else is a usage error that names
+the value:
+
+```console
+$ vergil-fixture-ts-app min x 1
 error: command-argument value 'x' is invalid for argument 'numbers'. not an integer
 ```
 
