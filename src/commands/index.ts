@@ -3,6 +3,7 @@ import type { Context } from "../context.js";
 import * as greet from "./greet.js";
 import * as info from "./info.js";
 import * as max from "./max.js";
+import * as min from "./min.js";
 import * as reverse from "./reverse.js";
 import * as sum from "./sum.js";
 
@@ -12,4 +13,4 @@ export interface Subcommand {
 }
 
 /** Every subcommand, in the order `--help` lists them. */
-export const subcommands: readonly Subcommand[] = [greet, sum, max, reverse, info];
+export const subcommands: readonly Subcommand[] = [greet, sum, max, min, reverse, info];

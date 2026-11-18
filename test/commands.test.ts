@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import { greet } from "../src/commands/greet.js";
 import { info } from "../src/commands/info.js";
 import { max } from "../src/commands/max.js";
+import { min } from "../src/commands/min.js";
 import { reverse } from "../src/commands/reverse.js";
 import { sum } from "../src/commands/sum.js";
 import { CommandError } from "../src/context.js";
@@ -37,6 +38,16 @@ describe("max", () => {
 
   it("is the largest number", () => {
     expect(max([1, 7, -4, 7])).toBe(7);
+  });
+});
+
+describe("min", () => {
+  it("is the only number of one", () => {
+    expect(min([-3])).toBe(-3);
+  });
+
+  it("is the smallest number", () => {
+    expect(min([1, -4, 7, -4])).toBe(-4);
   });
 });
 
