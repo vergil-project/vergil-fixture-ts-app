@@ -12,6 +12,7 @@ vergil-fixture-ts-app [options] [command]
 | [`min NUMBERS...`](#min)   | the smallest of the integers           |
 | [`reverse TEXT`](#reverse) | `TEXT` with its characters reversed    |
 | [`upper TEXT`](#upper)     | `TEXT` in upper case                   |
+| [`lower TEXT`](#lower)     | `TEXT` in lower case                   |
 | [`info`](#info)            | the program's name and version as JSON |
 
 `--help` (`-h`) prints the commands, and `--version` (`-V`) prints the
@@ -115,6 +116,17 @@ ADA LOVELACE
 `TEXT` is required. It is converted by Unicode's default case mapping, the
 same in every locale, so a letter can become more than one: `straße` prints
 as `STRASSE`.
+
+## lower
+
+```console
+$ vergil-fixture-ts-app lower "Ada Lovelace"
+ada lovelace
+```
+
+`TEXT` is required. It is converted by Unicode's default case mapping, the
+same in every locale, so a capital sigma that ends a word takes the final
+form: `ΟΔΟΣ` prints as `οδος`.
 
 ## info
 

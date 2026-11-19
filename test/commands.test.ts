@@ -2,6 +2,7 @@ import { InvalidArgumentError } from "commander";
 import { describe, expect, it } from "vitest";
 import { greet } from "../src/commands/greet.js";
 import { info } from "../src/commands/info.js";
+import { lower } from "../src/commands/lower.js";
 import { max } from "../src/commands/max.js";
 import { min } from "../src/commands/min.js";
 import { reverse } from "../src/commands/reverse.js";
@@ -82,6 +83,20 @@ describe("upper", () => {
 
   it("maps a letter to more than one when Unicode says so", () => {
     expect(upper("stra\u00DFe")).toBe("STRASSE");
+  });
+});
+
+describe("lower", () => {
+  it("is empty for empty text", () => {
+    expect(lower("")).toBe("");
+  });
+
+  it("lower-cases the letters and leaves the rest", () => {
+    expect(lower("Ada LOVELACE, 1815!")).toBe("ada lovelace, 1815!");
+  });
+
+  it("uses the final form for a capital sigma that ends a word", () => {
+    expect(lower("\u039F\u0394\u039F\u03A3")).toBe("\u03BF\u03B4\u03BF\u03C2");
   });
 });
 
