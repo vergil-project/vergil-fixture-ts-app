@@ -17,7 +17,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
@@ -504,6 +504,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#length" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        length
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#upper" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -637,6 +648,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#length" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        length
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#upper" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -716,6 +738,10 @@
 <tr>
 <td><a href="#reverse"><code>reverse TEXT</code></a></td>
 <td><code>TEXT</code> with its characters reversed</td>
+</tr>
+<tr>
+<td><a href="#length"><code>length TEXT</code></a></td>
+<td>the number of characters in <code>TEXT</code></td>
 </tr>
 <tr>
 <td><a href="#upper"><code>upper TEXT</code></a></td>
@@ -803,6 +829,14 @@ the value:</p>
 <p><code>TEXT</code> is required. Each character is a user-perceived character (a grapheme
 cluster), so an accented letter written with a combining mark, or an emoji
 made of several code points, stays whole.</p>
+<h2 id="length">length<a class="headerlink" href="#length" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>vergil-fixture-ts-app<span class="w"> </span>length<span class="w"> </span><span class="s2">"Ada Lovelace"</span>
+<span class="go">12</span>
+</code></pre></div>
+<p><code>TEXT</code> is required. Characters are counted as for <a href="#reverse"><code>reverse</code></a>: each
+is a user-perceived character (a grapheme cluster), so an accented letter
+written with a combining mark, or an emoji made of several code points,
+counts as one.</p>
 <h2 id="upper">upper<a class="headerlink" href="#upper" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>vergil-fixture-ts-app<span class="w"> </span>upper<span class="w"> </span><span class="s2">"Ada Lovelace"</span>
 <span class="go">ADA LOVELACE</span>
