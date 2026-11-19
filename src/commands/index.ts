@@ -15,4 +15,13 @@ export interface Subcommand {
 }
 
 /** Every subcommand, in the order `--help` lists them. */
-export const subcommands: readonly Subcommand[] = [greet, sum, max, min, reverse, upper, lower, info];
+export const subcommands: readonly Subcommand[] = [
+  greet,
+  sum,
+  max,
+  min,
+  reverse,
+  upper,
+  lower,
+  info,
+];
