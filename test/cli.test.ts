@@ -31,6 +31,10 @@ describe("run", () => {
     expect(runCaptured(["upper", "Ada"])).toEqual({ code: 0, out: "ADA\n", err: "" });
   });
 
+  it("prints the text in lower case", () => {
+    expect(runCaptured(["lower", "Ada"])).toEqual({ code: 0, out: "ada\n", err: "" });
+  });
+
   it("prints its metadata as JSON", () => {
     expect(runCaptured(["info"])).toEqual({
       code: 0,
@@ -55,6 +59,7 @@ describe("run", () => {
       "min <numbers...>",
       "reverse <text>",
       "upper <text>",
+      "lower <text>",
       "info",
     ]) {
       expect(outcome.out).toContain(name);
@@ -100,6 +105,14 @@ describe("run", () => {
 
   it("fails on upper with no text", () => {
     expect(runCaptured(["upper"])).toEqual({
+      code: 1,
+      out: "",
+      err: "error: missing required argument 'text'\n",
+    });
+  });
+
+  it("fails on lower with no text", () => {
+    expect(runCaptured(["lower"])).toEqual({
       code: 1,
       out: "",
       err: "error: missing required argument 'text'\n",
