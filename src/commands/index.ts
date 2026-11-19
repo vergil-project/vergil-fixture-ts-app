@@ -2,6 +2,7 @@ import type { Command } from "commander";
 import type { Context } from "../context.js";
 import * as greet from "./greet.js";
 import * as info from "./info.js";
+import * as length from "./length.js";
 import * as lower from "./lower.js";
 import * as max from "./max.js";
 import * as min from "./min.js";
@@ -21,6 +22,7 @@ export const subcommands: readonly Subcommand[] = [
   max,
   min,
   reverse,
+  length,
   upper,
   lower,
   info,
