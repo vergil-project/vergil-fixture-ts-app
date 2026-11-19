@@ -27,6 +27,10 @@ describe("run", () => {
     expect(runCaptured(["reverse", "Ada"])).toEqual({ code: 0, out: "adA\n", err: "" });
   });
 
+  it("prints the number of characters in the text", () => {
+    expect(runCaptured(["length", "Ada"])).toEqual({ code: 0, out: "3\n", err: "" });
+  });
+
   it("prints the text in upper case", () => {
     expect(runCaptured(["upper", "Ada"])).toEqual({ code: 0, out: "ADA\n", err: "" });
   });
@@ -58,6 +62,7 @@ describe("run", () => {
       "max <numbers...>",
       "min <numbers...>",
       "reverse <text>",
+      "length <text>",
       "upper <text>",
       "lower <text>",
       "info",
@@ -97,6 +102,14 @@ describe("run", () => {
 
   it("fails on reverse with no text", () => {
     expect(runCaptured(["reverse"])).toEqual({
+      code: 1,
+      out: "",
+      err: "error: missing required argument 'text'\n",
+    });
+  });
+
+  it("fails on length with no text", () => {
+    expect(runCaptured(["length"])).toEqual({
       code: 1,
       out: "",
       err: "error: missing required argument 'text'\n",

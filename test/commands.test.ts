@@ -2,6 +2,7 @@ import { InvalidArgumentError } from "commander";
 import { describe, expect, it } from "vitest";
 import { greet } from "../src/commands/greet.js";
 import { info } from "../src/commands/info.js";
+import { length } from "../src/commands/length.js";
 import { lower } from "../src/commands/lower.js";
 import { max } from "../src/commands/max.js";
 import { min } from "../src/commands/min.js";
@@ -69,6 +70,25 @@ describe("reverse", () => {
   it("keeps an emoji sequence whole", () => {
     const family = "\u{1F468}\u200D\u{1F469}\u200D\u{1F467}";
     expect(reverse(`a${family}b`)).toBe(`b${family}a`);
+  });
+});
+
+describe("length", () => {
+  it("is 0 for empty text", () => {
+    expect(length("")).toBe(0);
+  });
+
+  it("counts the characters", () => {
+    expect(length("Ada Lovelace")).toBe(12);
+  });
+
+  it("counts a letter and its combining mark as one", () => {
+    expect(length("cafe\u0301!")).toBe(5);
+  });
+
+  it("counts an emoji sequence as one", () => {
+    const family = "\u{1F468}\u200D\u{1F469}\u200D\u{1F467}";
+    expect(length(`a${family}b`)).toBe(3);
   });
 });
 

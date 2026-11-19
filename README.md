@@ -25,7 +25,7 @@ adds one small increment.
 
 ## Overview
 
-The program, `vergil-fixture-ts-app`, has eight subcommands:
+The program, `vergil-fixture-ts-app`, has nine subcommands:
 
 | Command            | Prints                                 |
 | ------------------ | -------------------------------------- |
@@ -34,6 +34,7 @@ The program, `vergil-fixture-ts-app`, has eight subcommands:
 | `max NUMBERS...`   | the largest of the integers            |
 | `min NUMBERS...`   | the smallest of the integers           |
 | `reverse TEXT`     | `TEXT` with its characters reversed    |
+| `length TEXT`      | the number of characters in `TEXT`     |
 | `upper TEXT`       | `TEXT` in upper case                   |
 | `lower TEXT`       | `TEXT` in lower case                   |
 | `info`             | the program's name and version as JSON |
