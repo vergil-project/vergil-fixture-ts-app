@@ -515,6 +515,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#words" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        words
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#upper" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -659,6 +670,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#words" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        words
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#upper" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -742,6 +764,10 @@
 <tr>
 <td><a href="#length"><code>length TEXT</code></a></td>
 <td>the number of characters in <code>TEXT</code></td>
+</tr>
+<tr>
+<td><a href="#words"><code>words TEXT</code></a></td>
+<td>the number of words in <code>TEXT</code></td>
 </tr>
 <tr>
 <td><a href="#upper"><code>upper TEXT</code></a></td>
@@ -837,6 +863,13 @@ made of several code points, stays whole.</p>
 is a user-perceived character (a grapheme cluster), so an accented letter
 written with a combining mark, or an emoji made of several code points,
 counts as one.</p>
+<h2 id="words">words<a class="headerlink" href="#words" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>vergil-fixture-ts-app<span class="w"> </span>words<span class="w"> </span><span class="s2">"Ada Lovelace, 1815!"</span>
+<span class="go">3</span>
+</code></pre></div>
+<p><code>TEXT</code> is required. Words are found by Unicode's default word boundaries: a
+number counts as a word, spaces and punctuation do not, and an apostrophe
+inside a word keeps it whole, so <code>don't</code> counts as one.</p>
 <h2 id="upper">upper<a class="headerlink" href="#upper" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>vergil-fixture-ts-app<span class="w"> </span>upper<span class="w"> </span><span class="s2">"Ada Lovelace"</span>
 <span class="go">ADA LOVELACE</span>
