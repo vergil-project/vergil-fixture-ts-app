@@ -15,6 +15,7 @@ vergil-fixture-ts-app [options] [command]
 | [`words TEXT`](#words)     | the number of words in `TEXT`          |
 | [`upper TEXT`](#upper)     | `TEXT` in upper case                   |
 | [`lower TEXT`](#lower)     | `TEXT` in lower case                   |
+| [`trim TEXT`](#trim)       | `TEXT` without surrounding whitespace  |
 | [`info`](#info)            | the program's name and version as JSON |
 
 `--help` (`-h`) prints the commands, and `--version` (`-V`) prints the
@@ -152,6 +153,17 @@ ada lovelace
 `TEXT` is required. It is converted by Unicode's default case mapping, the
 same in every locale, so a capital sigma that ends a word takes the final
 form: `ΟΔΟΣ` prints as `οδος`.
+
+## trim
+
+```console
+$ vergil-fixture-ts-app trim "  Ada Lovelace  "
+Ada Lovelace
+```
+
+`TEXT` is required. Its leading and trailing whitespace is dropped: spaces,
+tabs, line breaks and the other Unicode spaces, such as a no-break space.
+Whitespace inside the text is kept as it is.
 
 ## info
 

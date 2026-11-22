@@ -8,6 +8,7 @@ import * as max from "./max.js";
 import * as min from "./min.js";
 import * as reverse from "./reverse.js";
 import * as sum from "./sum.js";
+import * as trim from "./trim.js";
 import * as upper from "./upper.js";
 import * as words from "./words.js";
 
@@ -27,5 +28,6 @@ export const subcommands: readonly Subcommand[] = [
   words,
   upper,
   lower,
+  trim,
   info,
 ];
