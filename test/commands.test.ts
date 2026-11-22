@@ -8,6 +8,7 @@ import { max } from "../src/commands/max.js";
 import { min } from "../src/commands/min.js";
 import { reverse } from "../src/commands/reverse.js";
 import { sum } from "../src/commands/sum.js";
+import { trim } from "../src/commands/trim.js";
 import { upper } from "../src/commands/upper.js";
 import { words } from "../src/commands/words.js";
 import { CommandError } from "../src/context.js";
@@ -136,6 +137,21 @@ describe("lower", () => {
 
   it("uses the final form for a capital sigma that ends a word", () => {
     expect(lower("\u039F\u0394\u039F\u03A3")).toBe("\u03BF\u03B4\u03BF\u03C2");
+  });
+});
+
+describe("trim", () => {
+  it("is empty for empty or blank text", () => {
+    expect(trim("")).toBe("");
+    expect(trim(" \t\n ")).toBe("");
+  });
+
+  it("drops the leading and trailing whitespace and keeps the inner", () => {
+    expect(trim("  Ada  Lovelace\t\n")).toBe("Ada  Lovelace");
+  });
+
+  it("treats a Unicode space as whitespace", () => {
+    expect(trim(" Ada　")).toBe("Ada");
   });
 });
 
