@@ -43,6 +43,10 @@ describe("run", () => {
     expect(runCaptured(["lower", "Ada"])).toEqual({ code: 0, out: "ada\n", err: "" });
   });
 
+  it("prints the text without its surrounding whitespace", () => {
+    expect(runCaptured(["trim", "  Ada "])).toEqual({ code: 0, out: "Ada\n", err: "" });
+  });
+
   it("prints its metadata as JSON", () => {
     expect(runCaptured(["info"])).toEqual({
       code: 0,
@@ -70,6 +74,7 @@ describe("run", () => {
       "words <text>",
       "upper <text>",
       "lower <text>",
+      "trim <text>",
       "info",
     ]) {
       expect(outcome.out).toContain(name);
@@ -139,6 +144,14 @@ describe("run", () => {
 
   it("fails on lower with no text", () => {
     expect(runCaptured(["lower"])).toEqual({
+      code: 1,
+      out: "",
+      err: "error: missing required argument 'text'\n",
+    });
+  });
+
+  it("fails on trim with no text", () => {
+    expect(runCaptured(["trim"])).toEqual({
       code: 1,
       out: "",
       err: "error: missing required argument 'text'\n",
