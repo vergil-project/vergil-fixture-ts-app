@@ -12,6 +12,7 @@ vergil-fixture-ts-app [options] [command]
 | [`min NUMBERS...`](#min)   | the smallest of the integers           |
 | [`reverse TEXT`](#reverse) | `TEXT` with its characters reversed    |
 | [`length TEXT`](#length)   | the number of characters in `TEXT`     |
+| [`words TEXT`](#words)     | the number of words in `TEXT`          |
 | [`upper TEXT`](#upper)     | `TEXT` in upper case                   |
 | [`lower TEXT`](#lower)     | `TEXT` in lower case                   |
 | [`info`](#info)            | the program's name and version as JSON |
@@ -118,6 +119,17 @@ $ vergil-fixture-ts-app length "Ada Lovelace"
 is a user-perceived character (a grapheme cluster), so an accented letter
 written with a combining mark, or an emoji made of several code points,
 counts as one.
+
+## words
+
+```console
+$ vergil-fixture-ts-app words "Ada Lovelace, 1815!"
+3
+```
+
+`TEXT` is required. Words are found by Unicode's default word boundaries: a
+number counts as a word, spaces and punctuation do not, and an apostrophe
+inside a word keeps it whole, so `don't` counts as one.
 
 ## upper
 

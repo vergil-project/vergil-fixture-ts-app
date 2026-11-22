@@ -9,6 +9,7 @@ import { min } from "../src/commands/min.js";
 import { reverse } from "../src/commands/reverse.js";
 import { sum } from "../src/commands/sum.js";
 import { upper } from "../src/commands/upper.js";
+import { words } from "../src/commands/words.js";
 import { CommandError } from "../src/context.js";
 import { parseInteger } from "../src/integers.js";
 
@@ -89,6 +90,24 @@ describe("length", () => {
   it("counts an emoji sequence as one", () => {
     const family = "\u{1F468}\u200D\u{1F469}\u200D\u{1F467}";
     expect(length(`a${family}b`)).toBe(3);
+  });
+});
+
+describe("words", () => {
+  it("is 0 for empty text", () => {
+    expect(words("")).toBe(0);
+  });
+
+  it("is 0 for text with no words", () => {
+    expect(words("  , ! ")).toBe(0);
+  });
+
+  it("counts the words and numbers, not the spaces and punctuation", () => {
+    expect(words("Ada Lovelace, 1815!")).toBe(3);
+  });
+
+  it("keeps a word with an apostrophe whole", () => {
+    expect(words("don't  stop")).toBe(2);
   });
 });
 

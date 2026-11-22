@@ -31,6 +31,10 @@ describe("run", () => {
     expect(runCaptured(["length", "Ada"])).toEqual({ code: 0, out: "3\n", err: "" });
   });
 
+  it("prints the number of words in the text", () => {
+    expect(runCaptured(["words", "Ada Lovelace"])).toEqual({ code: 0, out: "2\n", err: "" });
+  });
+
   it("prints the text in upper case", () => {
     expect(runCaptured(["upper", "Ada"])).toEqual({ code: 0, out: "ADA\n", err: "" });
   });
@@ -63,6 +67,7 @@ describe("run", () => {
       "min <numbers...>",
       "reverse <text>",
       "length <text>",
+      "words <text>",
       "upper <text>",
       "lower <text>",
       "info",
@@ -110,6 +115,14 @@ describe("run", () => {
 
   it("fails on length with no text", () => {
     expect(runCaptured(["length"])).toEqual({
+      code: 1,
+      out: "",
+      err: "error: missing required argument 'text'\n",
+    });
+  });
+
+  it("fails on words with no text", () => {
+    expect(runCaptured(["words"])).toEqual({
       code: 1,
       out: "",
       err: "error: missing required argument 'text'\n",
