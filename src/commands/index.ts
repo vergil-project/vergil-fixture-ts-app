@@ -9,6 +9,7 @@ import * as min from "./min.js";
 import * as reverse from "./reverse.js";
 import * as sum from "./sum.js";
 import * as upper from "./upper.js";
+import * as words from "./words.js";
 
 /** A subcommand module: it adds its command to the program. */
 export interface Subcommand {
@@ -23,6 +24,7 @@ export const subcommands: readonly Subcommand[] = [
   min,
   reverse,
   length,
+  words,
   upper,
   lower,
   info,
