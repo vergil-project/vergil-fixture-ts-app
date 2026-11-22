@@ -548,6 +548,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#trim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        trim
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#info" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -703,6 +714,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#trim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        trim
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#info" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -776,6 +798,10 @@
 <tr>
 <td><a href="#lower"><code>lower TEXT</code></a></td>
 <td><code>TEXT</code> in lower case</td>
+</tr>
+<tr>
+<td><a href="#trim"><code>trim TEXT</code></a></td>
+<td><code>TEXT</code> without surrounding whitespace</td>
 </tr>
 <tr>
 <td><a href="#info"><code>info</code></a></td>
@@ -884,6 +910,13 @@ as <code>STRASSE</code>.</p>
 <p><code>TEXT</code> is required. It is converted by Unicode's default case mapping, the
 same in every locale, so a capital sigma that ends a word takes the final
 form: <code>ΟΔΟΣ</code> prints as <code>οδος</code>.</p>
+<h2 id="trim">trim<a class="headerlink" href="#trim" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>vergil-fixture-ts-app<span class="w"> </span>trim<span class="w"> </span><span class="s2">"  Ada Lovelace  "</span>
+<span class="go">Ada Lovelace</span>
+</code></pre></div>
+<p><code>TEXT</code> is required. Its leading and trailing whitespace is dropped: spaces,
+tabs, line breaks and the other Unicode spaces, such as a no-break space.
+Whitespace inside the text is kept as it is.</p>
 <h2 id="info">info<a class="headerlink" href="#info" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>vergil-fixture-ts-app<span class="w"> </span>info
 <span class="go">{"name":"vergil-fixture-ts-app","version":"0.1.0"}</span>
