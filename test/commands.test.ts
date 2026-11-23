@@ -198,11 +198,11 @@ describe("palindrome", () => {
   });
 
   it("keeps a combining mark with its letter", () => {
-    expect(palindrome("éaé")).toBe(true);
+    expect(palindrome("e\u0301ae\u0301")).toBe(true);
   });
 
   it("keeps an emoji sequence whole", () => {
-    const family = "\u{1F468}‍\u{1F469}‍\u{1F467}";
+    const family = "\u{1F468}\u200D\u{1F469}\u200D\u{1F467}";
     expect(palindrome(`a${family}a`)).toBe(true);
   });
 });
