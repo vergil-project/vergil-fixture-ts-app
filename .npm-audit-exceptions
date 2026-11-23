@@ -1,9 +1,0 @@
-# Reviewed, time-boxed exceptions to the npm audit gate (vrg-npm-audit-gate).
-# Format: <GHSA ID> exp:YYYY-MM-DD <tracking issue> <reason>
-#
-# GHSA-fc5q-39xc-vjpf: ReDoS in picomatch <=4.0.7, with no patched release
-# yet. Dev-only and transitive, through vitest, vite, tinyglobby and
-# typescript-eslint; not part of the shipped application. Acknowledged like a
-# trivy CVE with no fix, per the human's ruling on vergil-project/.github#1218.
-# Remove this entry once picomatch ships a fix (tracked in #20).
-GHSA-fc5q-39xc-vjpf exp:2026-12-18 vergil-project/vergil-fixture-ts-app#20 ReDoS in picomatch <=4.0.7 with no patched release; dev-only

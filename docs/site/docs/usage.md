@@ -16,6 +16,7 @@ vergil-fixture-ts-app [options] [command]
 | [`upper TEXT`](#upper)     | `TEXT` in upper case                   |
 | [`lower TEXT`](#lower)     | `TEXT` in lower case                   |
 | [`trim TEXT`](#trim)       | `TEXT` without surrounding whitespace  |
+| [`squeeze TEXT`](#squeeze) | `TEXT` with its whitespace collapsed   |
 | [`info`](#info)            | the program's name and version as JSON |
 
 `--help` (`-h`) prints the commands, and `--version` (`-V`) prints the
@@ -164,6 +165,17 @@ Ada Lovelace
 `TEXT` is required. Its leading and trailing whitespace is dropped: spaces,
 tabs, line breaks and the other Unicode spaces, such as a no-break space.
 Whitespace inside the text is kept as it is.
+
+## squeeze
+
+```console
+$ vergil-fixture-ts-app squeeze "  Ada   Lovelace  "
+Ada Lovelace
+```
+
+`TEXT` is required. Each run of whitespace inside it becomes one space, and
+its leading and trailing whitespace is dropped. Whitespace is the same as for
+`trim`: spaces, tabs, line breaks and the other Unicode spaces.
 
 ## info
 

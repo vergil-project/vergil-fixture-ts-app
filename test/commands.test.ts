@@ -7,6 +7,7 @@ import { lower } from "../src/commands/lower.js";
 import { max } from "../src/commands/max.js";
 import { min } from "../src/commands/min.js";
 import { reverse } from "../src/commands/reverse.js";
+import { squeeze } from "../src/commands/squeeze.js";
 import { sum } from "../src/commands/sum.js";
 import { trim } from "../src/commands/trim.js";
 import { upper } from "../src/commands/upper.js";
@@ -152,6 +153,25 @@ describe("trim", () => {
 
   it("treats a Unicode space as whitespace", () => {
     expect(trim(" Ada　")).toBe("Ada");
+  });
+});
+
+describe("squeeze", () => {
+  it("is empty for empty or blank text", () => {
+    expect(squeeze("")).toBe("");
+    expect(squeeze(" \t\n ")).toBe("");
+  });
+
+  it("collapses each inner run of whitespace to one space and drops the outer", () => {
+    expect(squeeze("  Ada  \t Lovelace\n\n1815 ")).toBe("Ada Lovelace 1815");
+  });
+
+  it("leaves text with single spaces as it is", () => {
+    expect(squeeze("Ada Lovelace")).toBe("Ada Lovelace");
+  });
+
+  it("treats a Unicode space as whitespace", () => {
+    expect(squeeze("Ada 　Lovelace")).toBe("Ada Lovelace");
   });
 });
 
