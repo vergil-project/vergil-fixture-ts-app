@@ -55,6 +55,11 @@ describe("run", () => {
     });
   });
 
+  it("prints whether the text is a palindrome", () => {
+    expect(runCaptured(["palindrome", "level"])).toEqual({ code: 0, out: "true\n", err: "" });
+    expect(runCaptured(["palindrome", "Ada"])).toEqual({ code: 0, out: "false\n", err: "" });
+  });
+
   it("prints its metadata as JSON", () => {
     expect(runCaptured(["info"])).toEqual({
       code: 0,
@@ -84,6 +89,7 @@ describe("run", () => {
       "lower <text>",
       "trim <text>",
       "squeeze <text>",
+      "palindrome <text>",
       "info",
     ]) {
       expect(outcome.out).toContain(name);
@@ -169,6 +175,14 @@ describe("run", () => {
 
   it("fails on squeeze with no text", () => {
     expect(runCaptured(["squeeze"])).toEqual({
+      code: 1,
+      out: "",
+      err: "error: missing required argument 'text'\n",
+    });
+  });
+
+  it("fails on palindrome with no text", () => {
+    expect(runCaptured(["palindrome"])).toEqual({
       code: 1,
       out: "",
       err: "error: missing required argument 'text'\n",

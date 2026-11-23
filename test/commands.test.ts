@@ -6,6 +6,7 @@ import { length } from "../src/commands/length.js";
 import { lower } from "../src/commands/lower.js";
 import { max } from "../src/commands/max.js";
 import { min } from "../src/commands/min.js";
+import { palindrome } from "../src/commands/palindrome.js";
 import { reverse } from "../src/commands/reverse.js";
 import { squeeze } from "../src/commands/squeeze.js";
 import { sum } from "../src/commands/sum.js";
@@ -172,6 +173,37 @@ describe("squeeze", () => {
 
   it("treats a Unicode space as whitespace", () => {
     expect(squeeze("Ada 　Lovelace")).toBe("Ada Lovelace");
+  });
+});
+
+describe("palindrome", () => {
+  it("holds for empty text and one character", () => {
+    expect(palindrome("")).toBe(true);
+    expect(palindrome("a")).toBe(true);
+  });
+
+  it("holds for text that reads the same reversed", () => {
+    expect(palindrome("level")).toBe(true);
+    expect(palindrome("abba")).toBe(true);
+  });
+
+  it("fails for text that does not", () => {
+    expect(palindrome("Ada Lovelace")).toBe(false);
+  });
+
+  it("compares case, spaces and punctuation exactly", () => {
+    expect(palindrome("Level")).toBe(false);
+    expect(palindrome("a b a")).toBe(true);
+    expect(palindrome("ab a")).toBe(false);
+  });
+
+  it("keeps a combining mark with its letter", () => {
+    expect(palindrome("e\u0301ae\u0301")).toBe(true);
+  });
+
+  it("keeps an emoji sequence whole", () => {
+    const family = "\u{1F468}\u200D\u{1F469}\u200D\u{1F467}";
+    expect(palindrome(`a${family}a`)).toBe(true);
   });
 });
 
