@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.1.8] - 2026-11-23
+
+### Build
+
+- remove the picomatch audit exception (#79)
+
+### Chores
+
+- npm update
+
+### Features
+
+- add the squeeze subcommand (#80)
+
 ## [0.1.7] - 2026-11-22
 
 ### CI
