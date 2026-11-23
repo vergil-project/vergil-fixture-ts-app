@@ -4,20 +4,21 @@
 vergil-fixture-ts-app [options] [command]
 ```
 
-| Command                    | Prints                                 |
-| -------------------------- | -------------------------------------- |
-| [`greet NAME`](#greet)     | a greeting for `NAME`                  |
-| [`sum [NUMBERS...]`](#sum) | the sum of the integers                |
-| [`max NUMBERS...`](#max)   | the largest of the integers            |
-| [`min NUMBERS...`](#min)   | the smallest of the integers           |
-| [`reverse TEXT`](#reverse) | `TEXT` with its characters reversed    |
-| [`length TEXT`](#length)   | the number of characters in `TEXT`     |
-| [`words TEXT`](#words)     | the number of words in `TEXT`          |
-| [`upper TEXT`](#upper)     | `TEXT` in upper case                   |
-| [`lower TEXT`](#lower)     | `TEXT` in lower case                   |
-| [`trim TEXT`](#trim)       | `TEXT` without surrounding whitespace  |
-| [`squeeze TEXT`](#squeeze) | `TEXT` with its whitespace collapsed   |
-| [`info`](#info)            | the program's name and version as JSON |
+| Command                          | Prints                                   |
+| -------------------------------- | ---------------------------------------- |
+| [`greet NAME`](#greet)           | a greeting for `NAME`                    |
+| [`sum [NUMBERS...]`](#sum)       | the sum of the integers                  |
+| [`max NUMBERS...`](#max)         | the largest of the integers              |
+| [`min NUMBERS...`](#min)         | the smallest of the integers             |
+| [`reverse TEXT`](#reverse)       | `TEXT` with its characters reversed      |
+| [`length TEXT`](#length)         | the number of characters in `TEXT`       |
+| [`words TEXT`](#words)           | the number of words in `TEXT`            |
+| [`upper TEXT`](#upper)           | `TEXT` in upper case                     |
+| [`lower TEXT`](#lower)           | `TEXT` in lower case                     |
+| [`trim TEXT`](#trim)             | `TEXT` without surrounding whitespace    |
+| [`squeeze TEXT`](#squeeze)       | `TEXT` with its whitespace collapsed     |
+| [`palindrome TEXT`](#palindrome) | `true` if `TEXT` reads the same reversed |
+| [`info`](#info)                  | the program's name and version as JSON   |
 
 `--help` (`-h`) prints the commands, and `--version` (`-V`) prints the
 program's version. Each command takes `--help` too.
@@ -176,6 +177,20 @@ Ada Lovelace
 `TEXT` is required. Each run of whitespace inside it becomes one space, and
 its leading and trailing whitespace is dropped. Whitespace is the same as for
 `trim`: spaces, tabs, line breaks and the other Unicode spaces.
+
+## palindrome
+
+```console
+$ vergil-fixture-ts-app palindrome level
+true
+$ vergil-fixture-ts-app palindrome "Ada Lovelace"
+false
+```
+
+`TEXT` is required. It is a palindrome when it reads the same with its
+characters reversed, characters counted as for [`reverse`](#reverse). The
+comparison is exact: case, spaces and punctuation all count, so `Level` is
+not a palindrome. Empty text and a single character are.
 
 ## info
 

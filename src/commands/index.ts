@@ -6,6 +6,7 @@ import * as length from "./length.js";
 import * as lower from "./lower.js";
 import * as max from "./max.js";
 import * as min from "./min.js";
+import * as palindrome from "./palindrome.js";
 import * as reverse from "./reverse.js";
 import * as squeeze from "./squeeze.js";
 import * as sum from "./sum.js";
@@ -31,5 +32,6 @@ export const subcommands: readonly Subcommand[] = [
   lower,
   trim,
   squeeze,
+  palindrome,
   info,
 ];
