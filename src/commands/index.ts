@@ -7,6 +7,7 @@ import * as lower from "./lower.js";
 import * as max from "./max.js";
 import * as min from "./min.js";
 import * as reverse from "./reverse.js";
+import * as squeeze from "./squeeze.js";
 import * as sum from "./sum.js";
 import * as trim from "./trim.js";
 import * as upper from "./upper.js";
@@ -29,5 +30,6 @@ export const subcommands: readonly Subcommand[] = [
   upper,
   lower,
   trim,
+  squeeze,
   info,
 ];

@@ -25,7 +25,7 @@ adds one small increment.
 
 ## Overview
 
-The program, `vergil-fixture-ts-app`, has eleven subcommands:
+The program, `vergil-fixture-ts-app`, has twelve subcommands:
 
 | Command            | Prints                                 |
 | ------------------ | -------------------------------------- |
@@ -39,6 +39,7 @@ The program, `vergil-fixture-ts-app`, has eleven subcommands:
 | `upper TEXT`       | `TEXT` in upper case                   |
 | `lower TEXT`       | `TEXT` in lower case                   |
 | `trim TEXT`        | `TEXT` without surrounding whitespace  |
+| `squeeze TEXT`     | `TEXT` with its whitespace collapsed   |
 | `info`             | the program's name and version as JSON |
 
 It exercises:
