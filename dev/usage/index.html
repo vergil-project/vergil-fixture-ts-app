@@ -570,6 +570,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#palindrome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        palindrome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#info" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -747,6 +758,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#palindrome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        palindrome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#info" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -828,6 +850,10 @@
 <tr>
 <td><a href="#squeeze"><code>squeeze TEXT</code></a></td>
 <td><code>TEXT</code> with its whitespace collapsed</td>
+</tr>
+<tr>
+<td><a href="#palindrome"><code>palindrome TEXT</code></a></td>
+<td><code>true</code> if <code>TEXT</code> reads the same reversed</td>
 </tr>
 <tr>
 <td><a href="#info"><code>info</code></a></td>
@@ -950,6 +976,16 @@ Whitespace inside the text is kept as it is.</p>
 <p><code>TEXT</code> is required. Each run of whitespace inside it becomes one space, and
 its leading and trailing whitespace is dropped. Whitespace is the same as for
 <code>trim</code>: spaces, tabs, line breaks and the other Unicode spaces.</p>
+<h2 id="palindrome">palindrome<a class="headerlink" href="#palindrome" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>vergil-fixture-ts-app<span class="w"> </span>palindrome<span class="w"> </span>level
+<span class="go">true</span>
+<span class="gp">$ </span>vergil-fixture-ts-app<span class="w"> </span>palindrome<span class="w"> </span><span class="s2">"Ada Lovelace"</span>
+<span class="go">false</span>
+</code></pre></div>
+<p><code>TEXT</code> is required. It is a palindrome when it reads the same with its
+characters reversed, characters counted as for <a href="#reverse"><code>reverse</code></a>. The
+comparison is exact: case, spaces and punctuation all count, so <code>Level</code> is
+not a palindrome. Empty text and a single character are.</p>
 <h2 id="info">info<a class="headerlink" href="#info" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>vergil-fixture-ts-app<span class="w"> </span>info
 <span class="go">{"name":"vergil-fixture-ts-app","version":"0.1.0"}</span>
