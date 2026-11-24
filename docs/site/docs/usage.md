@@ -4,21 +4,22 @@
 vergil-fixture-ts-app [options] [command]
 ```
 
-| Command                          | Prints                                   |
-| -------------------------------- | ---------------------------------------- |
-| [`greet NAME`](#greet)           | a greeting for `NAME`                    |
-| [`sum [NUMBERS...]`](#sum)       | the sum of the integers                  |
-| [`max NUMBERS...`](#max)         | the largest of the integers              |
-| [`min NUMBERS...`](#min)         | the smallest of the integers             |
-| [`reverse TEXT`](#reverse)       | `TEXT` with its characters reversed      |
-| [`length TEXT`](#length)         | the number of characters in `TEXT`       |
-| [`words TEXT`](#words)           | the number of words in `TEXT`            |
-| [`upper TEXT`](#upper)           | `TEXT` in upper case                     |
-| [`lower TEXT`](#lower)           | `TEXT` in lower case                     |
-| [`trim TEXT`](#trim)             | `TEXT` without surrounding whitespace    |
-| [`squeeze TEXT`](#squeeze)       | `TEXT` with its whitespace collapsed     |
-| [`palindrome TEXT`](#palindrome) | `true` if `TEXT` reads the same reversed |
-| [`info`](#info)                  | the program's name and version as JSON   |
+| Command                          | Prints                                    |
+| -------------------------------- | ----------------------------------------- |
+| [`greet NAME`](#greet)           | a greeting for `NAME`                     |
+| [`sum [NUMBERS...]`](#sum)       | the sum of the integers                   |
+| [`max NUMBERS...`](#max)         | the largest of the integers               |
+| [`min NUMBERS...`](#min)         | the smallest of the integers              |
+| [`reverse TEXT`](#reverse)       | `TEXT` with its characters reversed       |
+| [`length TEXT`](#length)         | the number of characters in `TEXT`        |
+| [`words TEXT`](#words)           | the number of words in `TEXT`             |
+| [`upper TEXT`](#upper)           | `TEXT` in upper case                      |
+| [`lower TEXT`](#lower)           | `TEXT` in lower case                      |
+| [`capitalize TEXT`](#capitalize) | `TEXT` with an upper-case first character |
+| [`trim TEXT`](#trim)             | `TEXT` without surrounding whitespace     |
+| [`squeeze TEXT`](#squeeze)       | `TEXT` with its whitespace collapsed      |
+| [`palindrome TEXT`](#palindrome) | `true` if `TEXT` reads the same reversed  |
+| [`info`](#info)                  | the program's name and version as JSON    |
 
 `--help` (`-h`) prints the commands, and `--version` (`-V`) prints the
 program's version. Each command takes `--help` too.
@@ -155,6 +156,17 @@ ada lovelace
 `TEXT` is required. It is converted by Unicode's default case mapping, the
 same in every locale, so a capital sigma that ends a word takes the final
 form: `ΟΔΟΣ` prints as `οδος`.
+
+## capitalize
+
+```console
+$ vergil-fixture-ts-app capitalize "ada lovelace"
+Ada lovelace
+```
+
+`TEXT` is required. Its first character, counted as for
+[`reverse`](#reverse), is converted to upper case as for [`upper`](#upper),
+so a leading `ß` prints as `SS`. The rest of the text is kept as it is.
 
 ## trim
 
