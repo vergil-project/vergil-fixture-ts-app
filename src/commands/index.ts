@@ -1,5 +1,6 @@
 import type { Command } from "commander";
 import type { Context } from "../context.js";
+import * as capitalize from "./capitalize.js";
 import * as greet from "./greet.js";
 import * as info from "./info.js";
 import * as length from "./length.js";
@@ -30,6 +31,7 @@ export const subcommands: readonly Subcommand[] = [
   words,
   upper,
   lower,
+  capitalize,
   trim,
   squeeze,
   palindrome,

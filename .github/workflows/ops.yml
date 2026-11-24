@@ -15,6 +15,15 @@ jobs:
     permissions:
       contents: read
       issues: write
-    secrets:
-      APP_CLIENT_ID: ${{ secrets.APP_CLIENT_ID }}
-      APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+    secrets: inherit
+
+  # The daily agent audit (epic vergil-project/.github#1384). It runs after the
+  # config job, but a failing config job does not skip it. It has no reporting
+  # job: its findings are its exit status and run log, which hoshin reads.
+  agent-audit:
+    needs: github-config
+    if: ${{ !cancelled() }}
+    uses: vergil-project/vergil-actions/.github/workflows/ops-agent-audit.yml@v2.1
+    permissions:
+      contents: read
+    secrets: inherit
