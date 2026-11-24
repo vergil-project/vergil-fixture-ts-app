@@ -1,5 +1,6 @@
 import { InvalidArgumentError } from "commander";
 import { describe, expect, it } from "vitest";
+import { capitalize } from "../src/commands/capitalize.js";
 import { greet } from "../src/commands/greet.js";
 import { info } from "../src/commands/info.js";
 import { length } from "../src/commands/length.js";
@@ -154,6 +155,30 @@ describe("trim", () => {
 
   it("treats a Unicode space as whitespace", () => {
     expect(trim(" Ada　")).toBe("Ada");
+  });
+});
+
+describe("capitalize", () => {
+  it("is empty for empty text", () => {
+    expect(capitalize("")).toBe("");
+  });
+
+  it("upper-cases the first character and leaves the rest", () => {
+    expect(capitalize("ada lovelace")).toBe("Ada lovelace");
+    expect(capitalize("aDA")).toBe("ADA");
+  });
+
+  it("leaves text that does not start with a lower-case letter", () => {
+    expect(capitalize("Ada")).toBe("Ada");
+    expect(capitalize(" ada")).toBe(" ada");
+  });
+
+  it("keeps a combining mark with its letter", () => {
+    expect(capitalize("e\u0301cole")).toBe("E\u0301cole");
+  });
+
+  it("maps a letter to more than one by the default case mapping", () => {
+    expect(capitalize("\u00DFa")).toBe("SSa");
   });
 });
 

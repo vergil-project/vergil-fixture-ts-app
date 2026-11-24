@@ -47,6 +47,14 @@ describe("run", () => {
     expect(runCaptured(["trim", "  Ada "])).toEqual({ code: 0, out: "Ada\n", err: "" });
   });
 
+  it("prints the text with its first character in upper case", () => {
+    expect(runCaptured(["capitalize", "ada lovelace"])).toEqual({
+      code: 0,
+      out: "Ada lovelace\n",
+      err: "",
+    });
+  });
+
   it("prints the text with its whitespace collapsed", () => {
     expect(runCaptured(["squeeze", " Ada \t Lovelace "])).toEqual({
       code: 0,
@@ -87,6 +95,7 @@ describe("run", () => {
       "words <text>",
       "upper <text>",
       "lower <text>",
+      "capitalize <text>",
       "trim <text>",
       "squeeze <text>",
       "palindrome <text>",
@@ -167,6 +176,14 @@ describe("run", () => {
 
   it("fails on trim with no text", () => {
     expect(runCaptured(["trim"])).toEqual({
+      code: 1,
+      out: "",
+      err: "error: missing required argument 'text'\n",
+    });
+  });
+
+  it("fails on capitalize with no text", () => {
+    expect(runCaptured(["capitalize"])).toEqual({
       code: 1,
       out: "",
       err: "error: missing required argument 'text'\n",

@@ -25,23 +25,24 @@ adds one small increment.
 
 ## Overview
 
-The program, `vergil-fixture-ts-app`, has thirteen subcommands:
+The program, `vergil-fixture-ts-app`, has fourteen subcommands:
 
-| Command            | Prints                                   |
-| ------------------ | ---------------------------------------- |
-| `greet NAME`       | `Hello, NAME`                            |
-| `sum [NUMBERS...]` | the sum of the integers, `0` for none    |
-| `max NUMBERS...`   | the largest of the integers              |
-| `min NUMBERS...`   | the smallest of the integers             |
-| `reverse TEXT`     | `TEXT` with its characters reversed      |
-| `length TEXT`      | the number of characters in `TEXT`       |
-| `words TEXT`       | the number of words in `TEXT`            |
-| `upper TEXT`       | `TEXT` in upper case                     |
-| `lower TEXT`       | `TEXT` in lower case                     |
-| `trim TEXT`        | `TEXT` without surrounding whitespace    |
-| `squeeze TEXT`     | `TEXT` with its whitespace collapsed     |
-| `palindrome TEXT`  | `true` if `TEXT` reads the same reversed |
-| `info`             | the program's name and version as JSON   |
+| Command            | Prints                                    |
+| ------------------ | ----------------------------------------- |
+| `greet NAME`       | `Hello, NAME`                             |
+| `sum [NUMBERS...]` | the sum of the integers, `0` for none     |
+| `max NUMBERS...`   | the largest of the integers               |
+| `min NUMBERS...`   | the smallest of the integers              |
+| `reverse TEXT`     | `TEXT` with its characters reversed       |
+| `length TEXT`      | the number of characters in `TEXT`        |
+| `words TEXT`       | the number of words in `TEXT`             |
+| `upper TEXT`       | `TEXT` in upper case                      |
+| `lower TEXT`       | `TEXT` in lower case                      |
+| `capitalize TEXT`  | `TEXT` with an upper-case first character |
+| `trim TEXT`        | `TEXT` without surrounding whitespace     |
+| `squeeze TEXT`     | `TEXT` with its whitespace collapsed      |
+| `palindrome TEXT`  | `true` if `TEXT` reads the same reversed  |
+| `info`             | the program's name and version as JSON    |
 
 It exercises:
 
