@@ -8,6 +8,7 @@ import * as lower from "./lower.js";
 import * as max from "./max.js";
 import * as min from "./min.js";
 import * as palindrome from "./palindrome.js";
+import * as product from "./product.js";
 import * as reverse from "./reverse.js";
 import * as squeeze from "./squeeze.js";
 import * as sum from "./sum.js";
@@ -24,6 +25,7 @@ export interface Subcommand {
 export const subcommands: readonly Subcommand[] = [
   greet,
   sum,
+  product,
   max,
   min,
   reverse,

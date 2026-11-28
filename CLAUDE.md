@@ -25,7 +25,8 @@ Propose the entry and where it belongs first, then wait for the decision.
 
 Use `vrg-git` and `vrg-gh` only; the hook guard blocks raw `git` and `gh`. If a
 command is not available through the wrappers, explain why and ask the human to
-run it with `! <command>` in the prompt.
+run it. Hand every step the human runs as a plain copy-paste block for their own
+terminal, kept apart from your narrative and never with the `!` prefix.
 
 ## Validation
 
@@ -35,9 +36,8 @@ run it with `! <command>` in the prompt.
 
 ## PR handoff
 
-- After the merge review, record the PR with `vrg-pr-workflow report-ready
-  --issue <N> --title --summary --notes`. It pushes the branch itself. Leave
-  `--linkage` at its default (`Ref`).
+- After the merge review, record the PR with `vrg-pr-workflow report-ready --issue <N> --title --summary --notes`. It pushes the branch itself.
+  Leave `--linkage` at its default (`Ref`): `vrg-submit-pr` upgrades it to `Closes` for a managed task (an issue under an epic), so the PR closes it on merge.
 - Agents submit and finalize their own PRs into `develop` through the tools,
   never with `--release`: `vrg-submit-pr` runs the gates, opens the PR with
   auto-merge on and finalizes it; after a fix, rerun `vrg-finalize-pr`.
@@ -55,11 +55,11 @@ refuse otherwise. See the [ownership model](https://github.com/vergil-project/ve
 
 ## Engineering principles
 
-- Correctness over cost over speed. Never ship known-broken code with a
-  follow-up fix; if something is wrong, fix it now.
-- No silent failures: no swallowed exceptions, no `except: return ""`, no
-  fallbacks that hide errors. A failure hidden in code becomes a hallucination
-  at the AI layer.
+- Correctness over cost over speed. Never ship known-broken code with a follow-up fix; if something is wrong, fix it now.
+- No silent failures: no swallowed exceptions, no `except: return ""`, no fallbacks that hide errors. A failure hidden in code becomes a hallucination at the AI layer.
+- Prefer a tool's machine-readable output (`--json`, exact `--format` strings, NUL-separated `-z` records, HTTP status and exit codes) over parsing text meant for a person; where there is none, pin the locale, anchor the match and fail loudly on anything unexpected. This applies to new and touched code, not as a sweep.
+  A switch is rarely just adding `--json`: one tool can report errors in several shapes, values can change case or format between interfaces, exit codes can carry meaning, and a stricter parse can change what callers rely on.
+  Test each switch with the input the old parse misread, and check that ordinary input behaves as before.
 
 ## paad
 

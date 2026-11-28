@@ -15,6 +15,14 @@ describe("run", () => {
     expect(runCaptured(["sum", "1", "2", "-4"])).toEqual({ code: 0, out: "-1\n", err: "" });
   });
 
+  it("prints 1 for a product of no numbers", () => {
+    expect(runCaptured(["product"])).toEqual({ code: 0, out: "1\n", err: "" });
+  });
+
+  it("prints the product of numbers, negative ones included", () => {
+    expect(runCaptured(["product", "2", "3", "-4"])).toEqual({ code: 0, out: "-24\n", err: "" });
+  });
+
   it("prints the largest number", () => {
     expect(runCaptured(["max", "1", "7", "-4"])).toEqual({ code: 0, out: "7\n", err: "" });
   });
@@ -88,6 +96,7 @@ describe("run", () => {
     for (const name of [
       "greet <name>",
       "sum [numbers...]",
+      "product [numbers...]",
       "max <numbers...>",
       "min <numbers...>",
       "reverse <text>",
@@ -243,6 +252,22 @@ describe("run", () => {
       code: 1,
       out: "",
       err: "error: command-argument value 'two' is invalid for argument 'numbers'. not an integer\n",
+    });
+  });
+
+  it("fails on a product argument that is not an integer", () => {
+    expect(runCaptured(["product", "2", "x"])).toEqual({
+      code: 1,
+      out: "",
+      err: "error: command-argument value 'x' is invalid for argument 'numbers'. not an integer\n",
+    });
+  });
+
+  it("fails on a product out of the safe range, with the reason", () => {
+    expect(runCaptured(["product", String(Number.MAX_SAFE_INTEGER), "2"])).toEqual({
+      code: 1,
+      out: "",
+      err: "error: the product is out of the safe integer range\n",
     });
   });
 
