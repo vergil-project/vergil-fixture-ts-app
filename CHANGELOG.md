@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.1.11] - 2026-11-28
+
+### Chores
+
+- npm update
+- sync the managed files with the released templates (#108)
+- sync the managed files with the released templates (#109)
+
+### Features
+
+- add the product subcommand (#110)
+
 ## [0.1.10] - 2026-11-24
 
 ### CI
