@@ -8,6 +8,7 @@ import { lower } from "../src/commands/lower.js";
 import { max } from "../src/commands/max.js";
 import { min } from "../src/commands/min.js";
 import { palindrome } from "../src/commands/palindrome.js";
+import { product } from "../src/commands/product.js";
 import { reverse } from "../src/commands/reverse.js";
 import { squeeze } from "../src/commands/squeeze.js";
 import { sum } from "../src/commands/sum.js";
@@ -35,6 +36,26 @@ describe("sum", () => {
   it("fails rather than round a sum out of the safe range", () => {
     expect(() => sum([Number.MAX_SAFE_INTEGER, 1])).toThrow(
       new CommandError("the sum is out of the safe integer range"),
+    );
+  });
+});
+
+describe("product", () => {
+  it("is 1 for no numbers", () => {
+    expect(product([])).toBe(1);
+  });
+
+  it("multiplies the numbers, negative ones included", () => {
+    expect(product([2, 3, -4])).toBe(-24);
+  });
+
+  it("is 0 when a zero makes a product of large numbers zero", () => {
+    expect(product([Number.MAX_SAFE_INTEGER, Number.MAX_SAFE_INTEGER, 0])).toBe(0);
+  });
+
+  it("fails rather than round a product out of the safe range", () => {
+    expect(() => product([Number.MAX_SAFE_INTEGER, 2])).toThrow(
+      new CommandError("the product is out of the safe integer range"),
     );
   });
 });
