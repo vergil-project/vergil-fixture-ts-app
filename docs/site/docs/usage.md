@@ -4,22 +4,23 @@
 vergil-fixture-ts-app [options] [command]
 ```
 
-| Command                          | Prints                                    |
-| -------------------------------- | ----------------------------------------- |
-| [`greet NAME`](#greet)           | a greeting for `NAME`                     |
-| [`sum [NUMBERS...]`](#sum)       | the sum of the integers                   |
-| [`max NUMBERS...`](#max)         | the largest of the integers               |
-| [`min NUMBERS...`](#min)         | the smallest of the integers              |
-| [`reverse TEXT`](#reverse)       | `TEXT` with its characters reversed       |
-| [`length TEXT`](#length)         | the number of characters in `TEXT`        |
-| [`words TEXT`](#words)           | the number of words in `TEXT`             |
-| [`upper TEXT`](#upper)           | `TEXT` in upper case                      |
-| [`lower TEXT`](#lower)           | `TEXT` in lower case                      |
-| [`capitalize TEXT`](#capitalize) | `TEXT` with an upper-case first character |
-| [`trim TEXT`](#trim)             | `TEXT` without surrounding whitespace     |
-| [`squeeze TEXT`](#squeeze)       | `TEXT` with its whitespace collapsed      |
-| [`palindrome TEXT`](#palindrome) | `true` if `TEXT` reads the same reversed  |
-| [`info`](#info)                  | the program's name and version as JSON    |
+| Command                            | Prints                                    |
+| ---------------------------------- | ----------------------------------------- |
+| [`greet NAME`](#greet)             | a greeting for `NAME`                     |
+| [`sum [NUMBERS...]`](#sum)         | the sum of the integers                   |
+| [`product [NUMBERS...]`](#product) | the product of the integers               |
+| [`max NUMBERS...`](#max)           | the largest of the integers               |
+| [`min NUMBERS...`](#min)           | the smallest of the integers              |
+| [`reverse TEXT`](#reverse)         | `TEXT` with its characters reversed       |
+| [`length TEXT`](#length)           | the number of characters in `TEXT`        |
+| [`words TEXT`](#words)             | the number of words in `TEXT`             |
+| [`upper TEXT`](#upper)             | `TEXT` in upper case                      |
+| [`lower TEXT`](#lower)             | `TEXT` in lower case                      |
+| [`capitalize TEXT`](#capitalize)   | `TEXT` with an upper-case first character |
+| [`trim TEXT`](#trim)               | `TEXT` without surrounding whitespace     |
+| [`squeeze TEXT`](#squeeze)         | `TEXT` with its whitespace collapsed      |
+| [`palindrome TEXT`](#palindrome)   | `true` if `TEXT` reads the same reversed  |
+| [`info`](#info)                    | the program's name and version as JSON    |
 
 `--help` (`-h`) prints the commands, and `--version` (`-V`) prints the
 program's version. Each command takes `--help` too.
@@ -67,6 +68,32 @@ result:
 ```console
 $ vergil-fixture-ts-app sum 9007199254740991 1
 error: the sum is out of the safe integer range
+```
+
+## product
+
+```console
+$ vergil-fixture-ts-app product 2 3 -4
+-24
+$ vergil-fixture-ts-app product
+1
+```
+
+Each number is read as for [`sum`](#sum): a decimal integer with an optional
+sign, within JavaScript's safe integer range (±9007199254740991). Anything else
+is a usage error that names the value:
+
+```console
+$ vergil-fixture-ts-app product 2 x
+error: command-argument value 'x' is invalid for argument 'numbers'. not an integer
+```
+
+A product outside the safe integer range fails rather than print a rounded
+result:
+
+```console
+$ vergil-fixture-ts-app product 9007199254740991 2
+error: the product is out of the safe integer range
 ```
 
 ## max
