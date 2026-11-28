@@ -471,6 +471,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#product" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        product
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#max" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -670,6 +681,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#product" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        product
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#max" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -838,6 +860,10 @@
 <td>the sum of the integers</td>
 </tr>
 <tr>
+<td><a href="#product"><code>product [NUMBERS...]</code></a></td>
+<td>the product of the integers</td>
+</tr>
+<tr>
 <td><a href="#max"><code>max NUMBERS...</code></a></td>
 <td>the largest of the integers</td>
 </tr>
@@ -931,6 +957,23 @@ names the value:</p>
 result:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>vergil-fixture-ts-app<span class="w"> </span>sum<span class="w"> </span><span class="m">9007199254740991</span><span class="w"> </span><span class="m">1</span>
 <span class="go">error: the sum is out of the safe integer range</span>
+</code></pre></div>
+<h2 id="product">product<a class="headerlink" href="#product" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>vergil-fixture-ts-app<span class="w"> </span>product<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span>-4
+<span class="go">-24</span>
+<span class="gp">$ </span>vergil-fixture-ts-app<span class="w"> </span>product
+<span class="go">1</span>
+</code></pre></div>
+<p>Each number is read as for <a href="#sum"><code>sum</code></a>: a decimal integer with an optional
+sign, within JavaScript's safe integer range (±9007199254740991). Anything else
+is a usage error that names the value:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>vergil-fixture-ts-app<span class="w"> </span>product<span class="w"> </span><span class="m">2</span><span class="w"> </span>x
+<span class="go">error: command-argument value 'x' is invalid for argument 'numbers'. not an integer</span>
+</code></pre></div>
+<p>A product outside the safe integer range fails rather than print a rounded
+result:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>vergil-fixture-ts-app<span class="w"> </span>product<span class="w"> </span><span class="m">9007199254740991</span><span class="w"> </span><span class="m">2</span>
+<span class="go">error: the product is out of the safe integer range</span>
 </code></pre></div>
 <h2 id="max">max<a class="headerlink" href="#max" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>vergil-fixture-ts-app<span class="w"> </span>max<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">7</span><span class="w"> </span>-4
